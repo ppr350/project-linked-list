@@ -1,11 +1,13 @@
-import { linkedList } from "./linkedList.js"
+// import { linkedList } from "./linkedList.js"
 
 class Node {
-    constructor(data, head = null) {
-        this.data = data
-        this.head = head
+    constructor(value = null) {
+        this.value = value
+        this.nextNode = null
     }
 }
 
-const node1 = new Node('node1', 'head')
-console.log(node1)
+// const node1 = new Node('node1')
+// console.log(node1)
+
+export { Node }
