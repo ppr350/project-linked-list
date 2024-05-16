@@ -132,27 +132,21 @@ class linkedList {
     }
 
     removeAt(index) {
-        if (index < 0 || index > this.size) {
+        if (!this.head) {
             return
         }
-        if (index === this.size) {
-            return this.pop()
+        if (index === 0) {
+            this.head = this.head.nextNode
+            return
         }
-        let current = this.head
-        let prev = null
-        let count = 0
-        while (count !== index) {
-            prev = current
-            current = current.nextNode
-            count++
+        const prev = this.at(index - 1)
+        if (!prev || !prev.nextNode) {
+            return
         }
-        
-        prev.nextNode = current.nextNode
-        current.nextNode.prev = current.prev
+        prev.nextNode = prev.nextNode.nextNode
         this.size--
-        return current
-
     }
+    
     
 }
 
@@ -169,7 +163,7 @@ lili.contains('node4')
 lili.find('node3')
 lili.insertAt('node5', 1)
 lili.toString()
-lili.removeAt(2)
+// lili.removeAt(2)
 console.log(lili)
 
 // export { linkedList }
